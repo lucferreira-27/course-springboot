@@ -10,10 +10,12 @@ import org.springframework.context.annotation.Profile;
 
 import com.udemy.course.entities.Category;
 import com.udemy.course.entities.Order;
+import com.udemy.course.entities.OrderItem;
 import com.udemy.course.entities.Product;
 import com.udemy.course.entities.User;
 import com.udemy.course.entities.enums.OrderStatus;
 import com.udemy.course.respositories.CategoryRepository;
+import com.udemy.course.respositories.OrderItemRepository;
 import com.udemy.course.respositories.OrderRepository;
 import com.udemy.course.respositories.ProductRepository;
 import com.udemy.course.respositories.UserRepository;
@@ -26,7 +28,8 @@ public class TestConfig implements CommandLineRunner {
 	
 	@Autowired
 	private OrderRepository orderRepository;
-	
+	@Autowired
+	private OrderItemRepository orderItemRepository;
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
@@ -68,6 +71,12 @@ public class TestConfig implements CommandLineRunner {
 				
 		productRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
 		
+		
+		OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice()); 
+		OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice()); 
+		OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice()); 
+		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice()); 
+		orderItemRepository.saveAll(Arrays.asList( oi1,oi2,oi3,oi4));
 		
 	}
 	
