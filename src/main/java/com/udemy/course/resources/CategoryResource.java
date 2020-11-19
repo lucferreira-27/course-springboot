@@ -14,7 +14,7 @@ import com.udemy.course.entities.Order;
 import com.udemy.course.services.CategoryService;
 
 @RestController
-@RequestMapping(value = "/categorys")
+@RequestMapping(value = "/categories")
 public class CategoryResource {
 	
 	@Autowired
