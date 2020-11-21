@@ -80,6 +80,7 @@ public class Order {
 	public Set<OrderItem> getItems() {
 		return items;
 	}
+	
 
 	@Override
 	public int hashCode() {
